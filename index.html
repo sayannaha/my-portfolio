@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sayan Naha</title>
@@ -81,6 +82,21 @@
             text-align: center;
             padding: 2rem;
             margin-top: auto;
+        }
+
+        footer a {
+            color: #fff; /* Change the color */
+            font-size: 24px; /* Change the size */
+            margin: 0 10px; /* Add spacing between icons */
+            text-decoration: none; /* Remove underline */
+        }
+        
+        footer a:hover {
+            color: #0077b5; /* LinkedIn blue on hover */
+        }
+        
+        footer a:hover .fa-github {
+            color: #333; /* GitHub black on hover */
         }
 
         .award-link {
@@ -181,10 +197,15 @@
     </div>
 
     <footer>
-        <p><b><a href="https://www.linkedin.com/in/sayannaha/" target="_blank" class="connect">Linkedin</a> | 
-            <a href="https://github.com/sayannaha" target="_blank" class="connect">GitHub</a></b></p>
-        <br>
-        <b><p>© 2024 Sayan Naha. All rights reserved.</p></b>
+        <footer>
+            <a href="https://www.linkedin.com/in/sayannaha/" target="_blank" aria-label="LinkedIn">
+                <i class="fab fa-linkedin"></i> <!-- LinkedIn logo -->
+            </a>
+            <a href="https://github.com/sayannaha" target="_blank" aria-label="GitHub">
+                <i class="fab fa-github"></i> <!-- GitHub logo -->
+            </a>
+            <br><br><b><p>©2025 Sayan Naha. All rights reserved.</p></b>
+        </footer>
     </footer>
 </body>
 </html>
