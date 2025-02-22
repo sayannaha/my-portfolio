@@ -1,12 +1,35 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sayan Naha</title>
+    <title>Sayan Naha - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-color: #0073e6;
+            --secondary-color: #002147;
+            --text-color: #333;
+            --bg-color: #f5f5f5;
+            --card-bg: white;
+            --card-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            --section-text: #002147;
+            --hover-transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #4da3ff;
+            --secondary-color: #a8c7ff;
+            --text-color: #e0e0e0;
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --card-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            --section-text: #a8c7ff;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -15,211 +38,309 @@
         }
 
         body {
-            background-color: #f5f5f5;
-            color: #333;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: var(--hover-transition);
         }
 
+        /* Header Styles */
         header {
-            background-color: #0073e6;
+            background: #0073e6;
             color: white;
             text-align: center;
-            padding: 4rem 2rem 3rem;
+            padding: 1rem;
             position: relative;
         }
 
-        .container {
-            max-width: 1200px;
+        .header-image {
+            width: min(100%, 300px);
+            height: auto;
             margin: 0 auto;
-            padding: 2rem;
-            flex-grow: 1;
+            display: block;
         }
 
-        .awards-section {
-            margin: 3rem 0;
-        }
-
-        .award-card {
-            background-color: white;
-            border-radius: 10px;
-            padding: 2rem;
-            margin: 2rem 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        /* Theme Toggle */
+        .theme-toggle {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1.5rem;
+            padding: 0.5rem;
             transition: transform 0.3s ease;
         }
 
-        .award-card:hover {
-            transform: translateY(-5px);
+        .theme-toggle:hover {
+            transform: scale(1.1);
         }
 
-        .award-year {
-            color: #002147;
-            font-weight: bold;
+        /* Main Content */
+        .container {
+            width: min(100% - 2rem, 1200px);
+            margin: 0 auto;
+            padding: 2rem 0;
+            flex-grow: 1;
+        }
+
+        section {
+            margin: 3rem 0;
+        }
+
+        section h1 {
+            margin-bottom: 1.5rem;
+            font-size: clamp(1.75rem, 5vw, 2rem);
+            color: var(--section-text);
+        }
+
+        /* Card System */
+        .card {
+            background: var(--card-bg);
+            color: var(--text-color);
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+            box-shadow: var(--card-shadow);
+            transition: var(--hover-transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .card-year {
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .card-title {
+            font-size: clamp(1.2rem, 3vw, 1.3rem);
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .card-company {
+            font-weight: 600;
+            color: var(--secondary-color);
             margin-bottom: 0.5rem;
         }
 
-        .award-title {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #0073e6;
-        }
-
-        .award-title-doc {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #002147;
-        }
-
-        .award-description {
-            color: #666;
+        .card-description {
             line-height: 1.6;
+            font-size: 0.95rem;
+            opacity: 0.9;
         }
 
-        .connect {
-            text-decoration: none; /* Remove underline */
-            color: inherit; /* Inherit the text color from the parent */
-            cursor: pointer; /* Show the hand cursor on hover */
+        .card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
 
+        /* Footer Styles */
         footer {
-            background-color: #0073e6;
+            background: #0073e6;
             color: white;
             text-align: center;
             padding: 2rem;
             margin-top: auto;
         }
 
-        footer a {
-            color: #fff; /* Change the color */
-            font-size: 24px; /* Change the size */
-            margin: 0 10px; /* Add spacing between icons */
-            text-decoration: none; /* Remove underline */
-        }
-        
-        footer a:hover {
-            color: #002147;
-        }
-        
-        footer a:hover .fa-github {
-            color: #333;
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
         }
 
-        footer a:hover .fa-twitter {
-            color: #002147;
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: var(--hover-transition);
         }
 
-        .award-link {
-            text-decoration: none;
-            color: inherit;
-            display: block;
+        .social-links a:hover {
+            color: #cce6ff;
+        }
+
+        /* Utility Classes */
+        .text-bold { font-weight: 600 !important; }
+        .coming-soon { position: relative; opacity: 0.7; }
+
+        .coming-soon::after {
+            content: "Coming Soon";
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--primary-color);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-size: 0.75rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container { padding: 1.5rem; }
+            .card { padding: 1.5rem; }
+            .header-image { max-width: 200px; }
+        }
+
+        @media (max-width: 480px) {
+            header { padding: 2rem 1rem; }
+            .social-links { gap: 1rem; }
         }
     </style>
 </head>
 <body>
-    
     <header>
-        <b>
-        <h1>Sayan Naha</h1>
-        </b>
+        <button class="theme-toggle" aria-label="Toggle theme" aria-live="polite">
+            <i class="fas fa-moon"></i>
+        </button>
+        <img src="assets/banner.png" 
+             alt="Sayan Naha" 
+             class="header-image"
+             loading="lazy">
     </header>
 
-    <div class="container">
+    <main class="container">
 
-        <section class="experience-section">
-            <h1><b>EXPERIENCE</b></h1>
-            <a href="#" target="_blank" class="award-link">
-                <div class="award-card">
-                    <div class="award-year"><b>JAN 2025 - PRESENT</b></div>
-                    <h2 class="award-title"><b>EY Global Delivery Services</b></h2>
-                    <p class="award-description">
-                        <b>Click to View</b>
-                    </p>
-                </div>
-            </a>
-            <a href="https://drive.google.com/file/d/1Nfo9Y_4lvqnHPU29CoNZ8DxVlH_FUQJr/view?usp=sharing" target="_blank" class="award-link">
-                <div class="award-card">
-                    <div class="award-year"><b>OCT 2021 - DEC 2024</b></div>
-                    <h2 class="award-title"><b>Capgemini Technology Services India Limited</b></h2>
-                    <p class="award-description">
-                        <b>Click to View</b>
-                    </p>
-                </div>
+        
+        <section>
+            <h1>Experience</h1>
+            
+            <article class="card coming-soon">
+                <div class="card-year">JAN 2025 - PRESENT</div>
+                <h2 class="card-title">EY Global Delivery Services</h2>
+                <p class="card-description">Details coming soon</p>
+            </article>
+
+            <a href="https://drive.google.com/file/d/1Nfo9Y_4lvqnHPU29CoNZ8DxVlH_FUQJr/view?usp=sharing" 
+               target="_blank" 
+               class="card-link">
+                <article class="card">
+                    <div class="card-year">OCT 2021 - DEC 2024</div>
+                    <h2 class="card-title">Capgemini Technology Services India Limited</h2>
+                    <p class="card-description text-bold">Click to View</p>
+                </article>
             </a>
         </section>
 
-        <section class="awards-section">
-            <h1><b>AWARDS</b></h1>
-            <a href="https://drive.google.com/file/d/1EIufvqnagXqKJqH4vufacPSephlFrtZn/view?usp=sharing" target="_blank" class="award-link">
-                <div class="award-card">
-                    <div class="award-year"><b>2024</b></div>
-                    <h2 class="award-title"><b>WOW Award - Capgemini Technology Services India Limited</b></h2>
-                    <div class="award-company"><b>Client - Auto Club Group</b></div>
-                    <p class="award-description">
-                        <b>Got Awarded by India Insurance Head <i>Ashwin RaghunathaChari</i> for my contribution in the new functionality 'Telematics' for our client.<br>Also, for supporting the team through all the defects and being there to support during onshore hours.</b>
+        <section>
+            <h1>Awards</h1>
+            
+            <a href="https://drive.google.com/file/d/1EIufvqnagXqKJqH4vufacPSephlFrtZn/view?usp=sharing" 
+               target="_blank" 
+               class="card-link">
+                <article class="card">
+                    <div class="card-year">2024</div>
+                    <h2 class="card-title">WOW Award - Capgemini Technology Services India Limited</h2>
+                    <div class="card-company">Client - Auto Club Group</div>
+                    <p class="card-description">
+                        Recognized by India Insurance Head <em>Ashwin RaghunathaChari</em> for contributions to the 'Telematics' feature implementation and team support during critical phases.
                     </p>
-                </div>
+                </article>
             </a>
-            <a href="https://drive.google.com/file/d/1nOTrVWrK5SMdp860mQcxXhFSaZQiQBrM/view?usp=sharing" target="_blank" class="award-link">
-                <div class="award-card">
-                    <div class="award-year"><b>2023</b></div>
-                    <h2 class="award-title"><b>Star Award - Capgemini Technology Services India Limited</b></h2>
-                    <div class="award-company"><b>Client - Auto Club Group</b></div>
-                    <p class="award-description">
-                        <b>Got Awarded for providing Quality Code and Building new Insurance Products and it's Coverages for my Client.</b>
+
+            <a href="https://drive.google.com/file/d/1nOTrVWrK5SMdp860mQcxXhFSaZQiQBrM/view?usp=sharing" 
+               target="_blank" 
+               class="card-link">
+                <article class="card">
+                    <div class="card-year">2023</div>
+                    <h2 class="card-title">Star Award - Capgemini Technology Services India Limited</h2>
+                    <div class="card-company">Client - Auto Club Group</div>
+                    <p class="card-description">
+                        Honored for developing high-quality insurance products and coverage solutions with exceptional code quality.
                     </p>
-                </div>
+                </article>
             </a>
         </section>
 
-        <section class="document-section">
-            <h1><b>CERTIFICATIONS</b></h1>
-            <a href="https://www.hackerrank.com/certificates/iframe/a97a21f64e95" target="_blank" class="award-link">
-                <div class="award-card">
-                    <h2 class="award-title"><b>Hackerrank SQL(Advanced) Certificate</b></h2>
-                    <p class="award-description">
-                        <b>Click to View</b>
-                    </p>
-                </div>
+        <section>
+            <h1>Certifications</h1>
+            <a href="https://www.hackerrank.com/certificates/iframe/a97a21f64e95" 
+               target="_blank" 
+               class="card-link">
+                <article class="card">
+                    <h2 class="card-title">HackerRank SQL (Advanced) Certification</h2>
+                    <p class="card-description text-bold">Click to View</p>
+                </article>
             </a>
         </section>
 
-        <section class="document-section">
-            <h1><b>DOCUMENTS</b></h1>
-            <a href="https://drive.google.com/file/d/1DiSyTV0-gwttvOwv5PcSUOnFqJvLnyLB/view?usp=sharing" target="_blank" class="award-link">
-                <div class="award-card">
-                    <h2 class="award-title-doc"><b>Resume</b></h2>
-                    <p class="award-description">
-                        <b>Click to View</b>
-                    </p>
-                </div>
+        <section>
+            <h1>Documents</h1>
+            <a href="https://drive.google.com/file/d/1DiSyTV0-gwttvOwv5PcSUOnFqJvLnyLB/view?usp=sharing" 
+               target="_blank" 
+               class="card-link">
+                <article class="card">
+                    <h2 class="card-title" style="color: #002147;">Resume</h2>
+                    <p class="card-description text-bold">Click to View</p>
+                </article>
             </a>
-            <a href="https://drive.google.com/file/d/1Iv0MCEqQDKLJD1kCTpyQ_DRj34pLjTbF/view?usp=sharing" target="_blank" class="award-link">
-                <div class="award-card">
-                    <h2 class="award-title-doc"><b>Graduation Certificate</b></h2>
-                    <p class="award-description">
-                        <b>Click to View</b>
-                    </p>
-                </div>
+
+            <a href="https://drive.google.com/file/d/1Iv0MCEqQDKLJD1kCTpyQ_DRj34pLjTbF/view?usp=sharing" 
+               target="_blank" 
+               class="card-link">
+                <article class="card">
+                    <h2 class="card-title" style="color: #002147;">Graduation Certificate</h2>
+                    <p class="card-description text-bold">Click to View</p>
+                </article>
             </a>
         </section>
-
-    </div>
+    </main>
 
     <footer>
-        <footer>
-            <a href="https://www.linkedin.com/in/sayannaha/" target="_blank" aria-label="LinkedIn">
+        <div class="text-bold">Find me on the socials below</div><br>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/sayannaha/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                 <i class="fab fa-linkedin"></i>
             </a>
-            <a href="https://github.com/sayannaha" target="_blank" aria-label="GitHub">
+            <a href="https://github.com/sayannaha" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                 <i class="fab fa-github"></i>
             </a>
-            <a href="https://x.com/_sayannaha_" target="_blank" aria-label="Twitter">
+            <a href="https://x.com/_sayannaha_" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
                 <i class="fab fa-twitter"></i>
             </a>
-            <br><br><b><p>©2025 Sayan Naha. All rights reserved.</p></b>
-        </footer>
+        </div>
+        <p class="text-bold">©2025 Sayan Naha. All rights reserved.</p>
     </footer>
+
+    <script>
+        const themeToggle = {
+            button: document.querySelector('.theme-toggle'),
+            icon: document.querySelector('.theme-toggle i'),
+            body: document.body,
+            
+            init() {
+                this.loadTheme();
+                this.button.addEventListener('click', () => this.toggleTheme());
+            },
+            
+            loadTheme() {
+                const savedTheme = localStorage.getItem('theme') || 
+                                 (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                this.body.dataset.theme = savedTheme;
+                this.icon.className = savedTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            },
+            
+            toggleTheme() {
+                const isDark = this.body.dataset.theme === 'dark';
+                this.body.dataset.theme = isDark ? 'light' : 'dark';
+                this.icon.className = isDark ? 'fas fa-moon' : 'fas fa-sun';
+                localStorage.setItem('theme', this.body.dataset.theme);
+            }
+        };
+
+        themeToggle.init();
+    </script>
 </body>
 </html>
