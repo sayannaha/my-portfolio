@@ -198,17 +198,163 @@
             header { padding: 2rem 1rem; }
             .social-links { gap: 1rem; }
         }
+
+    /* Referral Button */
+    .refer-button {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        background: white;
+        color: var(--primary-color);
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: var(--hover-transition);
+        box-shadow: var(--card-shadow);
+    }
+
+    .refer-button:hover {
+        background: #f0f0f0;
+        transform: translateY(-1px);
+    }
+
+    /* Referral Modal */
+    .refer-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+        z-index: 1000;
+    }
+
+    .refer-content {
+        background: var(--card-bg);
+        width: min(90%, 500px);
+        margin: 2rem auto;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: var(--card-shadow);
+        color: var(--text-color);
+    }
+
+    [data-theme="dark"] .refer-button {
+        background: var(--primary-color);
+        color: white;
+    }
+
+    [data-theme="dark"] .refer-button:hover {
+        background: #3d8dff;
+    }
+
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        color: var(--secondary-color);
+    }
+
+    .form-input {
+        width: 100%;
+        padding: 0.8rem;
+        border: 1px solid var(--secondary-color);
+        border-radius: 5px;
+        background: var(--card-bg);
+        color: var(--text-color);
+        transition: var(--hover-transition);
+    }
+
+    .form-input:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 2px rgba(0,115,230,0.2);
+    }
+
+    #resume {
+        border: none;
+        padding: 0;
+    }
+
+    #submitBtn {
+        background: var(--primary-color);
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: var(--hover-transition);
+        display: none;
+    }
+
+    #submitBtn:hover {
+        background: #005bb5;
+    }
+
+    .close-modal {
+        float: right;
+        cursor: pointer;
+        font-size: 1.5rem;
+    }
+
+    .success-popup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+        z-index: 1000;
+    }
+
+    .success-content {
+        background: var(--card-bg);
+        width: min(90%, 400px);
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: var(--card-shadow);
+        color: var(--text-color);
+        position: relative;
+        margin: 20vh auto;
+        text-align: center;
+    }
+
+    .success-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        cursor: pointer;
+        font-size: 1.5rem;
+    }
+
+    .success-icon {
+        font-size: 3rem;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+    }
+
     </style>
 </head>
 <body>
     <header>
+        <button class="refer-button">Get a Referral</button>
         <button class="theme-toggle" aria-label="Toggle theme" aria-live="polite">
             <i class="fas fa-moon"></i>
         </button>
-        <img src="banner.png" 
-             alt="Sayan Naha" 
-             class="header-image"
-             loading="lazy">
+        <img src="assets/banner.png" 
+            alt="Sayan Naha" 
+            class="header-image"
+            loading="lazy">
     </header>
 
     <main class="container">
@@ -224,8 +370,8 @@
             </article>
 
             <a href="https://drive.google.com/file/d/1Nfo9Y_4lvqnHPU29CoNZ8DxVlH_FUQJr/view?usp=sharing" 
-               target="_blank" 
-               class="card-link">
+            target="_blank" 
+            class="card-link">
                 <article class="card">
                     <div class="card-year">OCT 2021 - DEC 2024</div>
                     <h2 class="card-title">Capgemini Technology Services India Limited</h2>
@@ -238,8 +384,8 @@
             <h1>Awards</h1>
             
             <a href="https://drive.google.com/file/d/1EIufvqnagXqKJqH4vufacPSephlFrtZn/view?usp=sharing" 
-               target="_blank" 
-               class="card-link">
+            target="_blank" 
+            class="card-link">
                 <article class="card">
                     <div class="card-year">2024</div>
                     <h2 class="card-title">WOW Award - Capgemini Technology Services India Limited</h2>
@@ -251,8 +397,8 @@
             </a>
 
             <a href="https://drive.google.com/file/d/1nOTrVWrK5SMdp860mQcxXhFSaZQiQBrM/view?usp=sharing" 
-               target="_blank" 
-               class="card-link">
+            target="_blank" 
+            class="card-link">
                 <article class="card">
                     <div class="card-year">2023</div>
                     <h2 class="card-title">Star Award - Capgemini Technology Services India Limited</h2>
@@ -267,8 +413,8 @@
         <section>
             <h1>Certifications</h1>
             <a href="https://www.hackerrank.com/certificates/iframe/a97a21f64e95" 
-               target="_blank" 
-               class="card-link">
+            target="_blank" 
+            class="card-link">
                 <article class="card">
                     <h2 class="card-title">HackerRank SQL (Advanced) Certification</h2>
                     <p class="card-description text-bold">Click to View</p>
@@ -279,8 +425,8 @@
         <section>
             <h1>Documents</h1>
             <a href="https://drive.google.com/file/d/1DiSyTV0-gwttvOwv5PcSUOnFqJvLnyLB/view?usp=sharing" 
-               target="_blank" 
-               class="card-link">
+            target="_blank" 
+            class="card-link">
                 <article class="card">
                     <h2 class="card-title">Resume</h2>
                     <p class="card-description text-bold">Click to View</p>
@@ -288,8 +434,8 @@
             </a>
 
             <a href="https://drive.google.com/file/d/1Iv0MCEqQDKLJD1kCTpyQ_DRj34pLjTbF/view?usp=sharing" 
-               target="_blank" 
-               class="card-link">
+            target="_blank" 
+            class="card-link">
                 <article class="card">
                     <h2 class="card-title">Graduation Certificate</h2>
                     <p class="card-description text-bold">Click to View</p>
@@ -297,6 +443,49 @@
             </a>
         </section>
     </main>
+
+    <div class="refer-modal">
+        <div class="refer-content card">
+            <span class="close-modal">&times;</span>
+            <h2>Referral Form</h2>
+            <form id="referForm">
+                <div class="form-group">
+                    <label>First Name</label>
+                    <input type="text" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label>Last Name</label>
+                    <input type="text" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" class="form-input" id="phone" 
+                        pattern="[0-9]{10}" required>
+                </div>
+                <div class="form-group">
+                    <label>Resume (PDF/DOCX)</label>
+                    <input type="file" class="form-input" id="resume"
+                        accept=".pdf,.docx" required>
+                </div>
+                <button type="submit" id="submitBtn">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="success-popup">
+        <div class="success-content card">
+            <span class="success-close">&times;</span>
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>Email Sent!</h2><br>
+            <p>Will get back to you for more info on the Referral!</p>
+        </div>
+    </div>
 
     <footer>
         <div class="text-bold">Find me on the socials below</div><br>
@@ -327,7 +516,7 @@
             
             loadTheme() {
                 const savedTheme = localStorage.getItem('theme') || 
-                                 (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                                (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
                 this.body.dataset.theme = savedTheme;
                 this.icon.className = savedTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
             },
@@ -341,6 +530,81 @@
         };
 
         themeToggle.init();
+
+        // Referral System
+        const referButton = document.querySelector('.refer-button');
+        const referModal = document.querySelector('.refer-modal');
+        const closeModal = document.querySelector('.close-modal');
+        const formInputs = document.querySelectorAll('.form-input');
+        const submitBtn = document.querySelector('#submitBtn');
+        const phoneInput = document.querySelector('#phone');
+
+        // Phone number validation
+        phoneInput.addEventListener('input', (e) => {
+            e.target.value = e.target.value.replace(/\D/g, '').slice(0,10);
+        });
+
+        // Form validation check
+        formInputs.forEach(input => {
+            input.addEventListener('input', () => {
+                const allFilled = Array.from(formInputs).every(
+                    input => input.value.trim() !== '' && input.checkValidity()
+                );
+                submitBtn.style.display = allFilled ? 'block' : 'none';
+            });
+        });
+
+        // Modal controls
+        referButton.addEventListener('click', () => {
+            referModal.style.display = 'block';
+        });
+
+        closeModal.addEventListener('click', () => {
+            referModal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if(e.target === referModal) {
+                referModal.style.display = 'none';
+            }
+        });
+
+        // Form submission
+        document.getElementById('referForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            referModal.style.display = 'none';
+        });
+
+        // Form submission
+        const successPopup = document.querySelector('.success-popup');
+        const successClose = document.querySelector('.success-close');
+
+        document.getElementById('referForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Close referral modal
+            referModal.style.display = 'none';
+            
+            // Show success popup
+            successPopup.style.display = 'block';
+            
+            // Reset form
+            document.getElementById('referForm').reset();
+            submitBtn.style.display = 'none';
+        });
+
+        // Close success popup
+        successClose.addEventListener('click', () => {
+            successPopup.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if(e.target === successPopup) {
+                successPopup.style.display = 'none';
+            }
+        });
+
     </script>
+    
 </body>
 </html>
